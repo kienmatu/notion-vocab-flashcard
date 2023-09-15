@@ -5,6 +5,7 @@ import Head from 'next/head';
 import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import AppLayout from '../components/app/Layout';
+import { LeftNavbar } from '../components/app/Navbar';
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
@@ -17,9 +18,21 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   };
   if (props.router.pathname.startsWith('/app')) {
     return (
-      <AppLayout colorScheme={colorScheme} setColorScheme={setColorScheme}>
-        <Component {...pageProps} />
-      </AppLayout>
+      <>
+        <Head>
+          <title>App - Notion Vocab Learning</title>
+          <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+          <link rel="shortcut icon" href="/favicon.svg" />
+        </Head>
+
+        <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+          <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
+            <AppLayout>
+              <Component {...pageProps} />
+            </AppLayout>
+          </MantineProvider>
+        </ColorSchemeProvider>
+      </>
     );
   }
   return (

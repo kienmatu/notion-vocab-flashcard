@@ -1,12 +1,9 @@
-'use client'; // This is a client component 👈🏽
-
 import { Title, Text } from '@mantine/core';
 
-export function Learn() {
+export function Settings() {
   return (
     <>
       <Title align="center" mt={100}>
-        Welcome to{' '}
         <Text inherit variant="gradient" component="span">
           Setting page
         </Text>
@@ -18,6 +15,5 @@ export function Learn() {
     </>
   );
 }
-export const dynamic = 'force-dynamic';
 
-export default Learn;
+export default Settings;

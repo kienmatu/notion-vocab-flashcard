@@ -2,16 +2,18 @@ import { useState } from 'react';
 import { createStyles, Navbar, Group, Code, getStylesRef, rem } from '@mantine/core';
 import {
   IconBellRinging,
-  IconFingerprint,
-  IconKey,
   IconSettings,
   Icon2fa,
-  IconDatabaseImport,
-  IconReceipt2,
+  IconBook,
+  IconInfoSquareRounded,
   IconSwitchHorizontal,
   IconLogout,
+  IconBrain,
 } from '@tabler/icons-react';
 import { MantineLogo } from '@mantine/ds';
+import { ColorSchemeToggle } from '../ColorSchemeToggle/ColorSchemeToggle';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -69,43 +71,40 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const data = [
+  { link: '/app/today', label: `Today's Vocab`, icon: IconBook },
+  { link: '/app/review', label: 'Review', icon: IconBrain },
   { link: '', label: 'Notifications', icon: IconBellRinging },
-  { link: '', label: 'Billing', icon: IconReceipt2 },
-  { link: '', label: 'Security', icon: IconFingerprint },
-  { link: '', label: 'SSH Keys', icon: IconKey },
-  { link: '', label: 'Databases', icon: IconDatabaseImport },
-  { link: '', label: 'Authentication', icon: Icon2fa },
-  { link: '', label: 'Other Settings', icon: IconSettings },
+  { link: '/app', label: 'Guides', icon: IconInfoSquareRounded },
+  { link: '/app/settings', label: 'Settings', icon: IconSettings },
 ];
 
 export function LeftNavbar() {
   const { classes, cx } = useStyles();
-  const [active, setActive] = useState('Billing');
+  const router = useRouter();
 
   const links = data.map((item) => (
-    <a
-      className={cx(classes.link, { [classes.linkActive]: item.label === active })}
+    <Link
+      className={cx(classes.link, {
+        [classes.linkActive]: router.pathname === item.link,
+      })}
       href={item.link}
       key={item.label}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(item.label);
-      }}
     >
       <item.icon className={classes.linkIcon} stroke={1.5} />
       <span>{item.label}</span>
-    </a>
+    </Link>
   ));
 
   return (
-    <Navbar height={700} width={{ sm: 300 }} p="md">
-      <Navbar.Section grow>
+    <Navbar height="100%" width={{ sm: 300 }} p="md">
+      <Navbar.Section mt={'xs'}>
         <Group className={classes.header} position="apart">
           <MantineLogo size={28} />
-          <Code sx={{ fontWeight: 700 }}>v3.1.2</Code>
+          <ColorSchemeToggle />
         </Group>
-        {links}
       </Navbar.Section>
+
+      <Navbar.Section grow>{links}</Navbar.Section>
 
       <Navbar.Section className={classes.footer}>
         <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
