@@ -1,5 +1,3 @@
-'use client'; // This is a client component 👈🏽
-
 import { Title, Text, Anchor } from '@mantine/core';
 
 export function Learn() {
@@ -8,7 +6,7 @@ export function Learn() {
       <Title align="center" mt={100}>
         Welcome to{' '}
         <Text inherit variant="gradient" component="span">
-          Notion Vocab Flashcard
+          Notion Vocab Flashcard APP
         </Text>
       </Title>
       <Text color="dimmed" align="center" size="lg" sx={{ maxWidth: 580 }} mx="auto" mt="xl">
