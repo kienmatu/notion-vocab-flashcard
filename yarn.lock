@@ -373,7 +373,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.8.0.tgz#f580f9beb67176fa57aae70b08ed510e1b18980f"
   integrity sha512-G/YwXTkv7Den9mXDO7AhLWkE3q+I92B+VqAE+dYG4NGPaHZGvt3G8Q0p9vmE+sq7rTGphUbAvmQ9YpbfMQGGlA==
 
-"@emotion/react@^11.10.4":
+"@emotion/react@11.10.4":
   version "11.10.4"
   resolved "https://registry.yarnpkg.com/@emotion/react/-/react-11.10.4.tgz#9dc6bccbda5d70ff68fdb204746c0e8b13a79199"
   integrity sha512-j0AkMpr6BL8gldJZ6XQsQ8DnS9TxEQu1R+OGmDZiWjBAJtCcbt0tS3I/YffoqHXxH6MjgI7KdMbYKw3MEiU9eA==
@@ -398,7 +398,7 @@
     "@emotion/utils" "^1.2.0"
     csstype "^3.0.2"
 
-"@emotion/server@^11.10.0":
+"@emotion/server@11.10.0":
   version "11.10.0"
   resolved "https://registry.yarnpkg.com/@emotion/server/-/server-11.10.0.tgz#3edc075b672c75426f682d56aadc6404fb1f6648"
   integrity sha512-MTvJ21JPo9aS02GdjFW4nhdwOi2tNNpMmAM/YED0pkxzjDNi5WbiTwXqaCnvLc2Lr8NFtjhT0az1vTJyLIHYcw==
@@ -447,6 +447,11 @@
     js-yaml "^4.1.0"
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
+
+"@faker-js/faker@8.0.2":
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/@faker-js/faker/-/faker-8.0.2.tgz#bab698c5d3da9c52744e966e0e3eedb6c8b05c37"
+  integrity sha512-Uo3pGspElQW91PCvKSIAXoEgAUlRnH29sX2/p89kg7sP1m2PzCufHINd0FhTXQf6DYGiUlVncdSPa2F9wxed2A==
 
 "@floating-ui/core@^1.2.1":
   version "1.2.1"
@@ -719,12 +724,12 @@
   dependencies:
     "@mantine/utils" "6.0.2"
 
-"@mantine/ds@^6.0.20":
-  version "6.0.20"
-  resolved "https://registry.yarnpkg.com/@mantine/ds/-/ds-6.0.20.tgz#7f9e4a4ec6da0b47a06842187f44a161d4b86c55"
-  integrity sha512-bKbqbYvJGzUS4x2JZxt2wSd3BJXEMOvj3nf2u7WKIYFeIA5+zpOVOEY2ocaX2ae71WDwzeYU+tY/HNQbk0G49Q==
+"@mantine/ds@6.0.2":
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/@mantine/ds/-/ds-6.0.2.tgz#4aa225a5e36c8398f633d36a23f866c03d2091ff"
+  integrity sha512-T4dypmfG1tlVUEJv8m31ToxbIF9HLvoOdB6pd4bgyYBP1AbgZqTviDO8J4Pod/+J9PyAA75qqLVYcc6Z46jwkg==
   dependencies:
-    "@mantine/utils" "6.0.20"
+    "@mantine/utils" "6.0.2"
 
 "@mantine/hooks@6.0.2":
   version "6.0.2"
@@ -775,11 +780,6 @@
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-6.0.2.tgz#06da9dfb390a026e005f7e2712a3a30373a2b4c3"
   integrity sha512-fx+cmkb8PMpkr65nUs8YgaXFJbtNY+ybSXDfBxwFAWMTLAocbNo7vjkSvPWZVS1O2szPK/s4Rqdw0W76dyG4+w==
-
-"@mantine/utils@6.0.20":
-  version "6.0.20"
-  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-6.0.20.tgz#c331040c62050edf3a513f3cfb702f3170597c10"
-  integrity sha512-9vsSskPtFyfPW2DOad6brLl9x4MnZtlyhszyoZOyMgXf/vdQbThKhL6PpqUbmlalwQpnCObbkEwVydugeh2dyQ==
 
 "@next/bundle-analyzer@^13.1.6":
   version "13.1.6"
@@ -1009,7 +1009,7 @@
   dependencies:
     tslib "^2.4.0"
 
-"@tabler/icons-react@^2.4.0":
+"@tabler/icons-react@2.4.0":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@tabler/icons-react/-/icons-react-2.4.0.tgz#07d51950b6b6aa326d1dee107018f151e509ef69"
   integrity sha512-U04bSknpXPdZP8soAnMPiz4g6PXPfWHfMoe2qhDoRlnS8UJ8JHHE/k4Lx4rw2Tfy9a2QJeoPV5HQIeKXrNPHGA==
@@ -2178,7 +2178,7 @@ electron-to-chromium@^1.4.84:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.103.tgz#abfe376a4d70fa1e1b4b353b95df5d6dfd05da3a"
   integrity sha512-c/uKWR1Z/W30Wy/sx3dkZoj4BijbXX85QKWu9jJfjho3LBAXNEGAEW3oWiGb+dotA6C6BzCTxL2/aLes7jlUeg==
 
-embla-carousel-react@^7.0.3:
+embla-carousel-react@7.0.3:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/embla-carousel-react/-/embla-carousel-react-7.0.3.tgz#343c972a1ac5869acba3d6e9c7eeb3bd27f7e335"
   integrity sha512-nvgAAmoFuXyCPuH2rSTnSdaTSMwFX/ilXDlfMCCDfdaj4X3u25+x8lMC1bINuk+4G2Hm6SOlrZ1eGkYdBg5HAg==
