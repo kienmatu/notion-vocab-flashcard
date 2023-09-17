@@ -1,6 +1,7 @@
-import { Anchor, Card, Text, rem, createStyles, SimpleGrid, Container } from '@mantine/core';
+import { Card, Text, rem, createStyles, SimpleGrid, Container } from '@mantine/core';
 import { VocabItem } from '../type';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
+import { getRandomWords } from '@/utils/index';
 
 const useStyles = createStyles((theme) => ({
   title: {
@@ -28,8 +29,7 @@ const useStyles = createStyles((theme) => ({
     },
   },
   wrong: {
-    borderColor: `${theme.colors.red[6]}!important`,
-    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.white,
+    backgroundColor: `${theme.colors.red[6]}!important`,
   },
   correct: {
     color: 'white',
@@ -37,51 +37,50 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function SelectingFlashcard({ item, words }: { item: VocabItem; words: string[] }) {
-  const { classes, theme } = useStyles();
+type SelectingFlashcardProps = {
+  result: VocabItem;
+  handleNext: () => void;
+};
+
+export default function SelectingFlashcard({ result, handleNext }: SelectingFlashcardProps) {
+  const { classes } = useStyles();
   const [selectedWord, setSelectedWord] = useState('');
 
+  const options = useMemo(() => getRandomWords(result.name), [result]);
+
   const handleCardClick = (word: string) => {
-    if (word === item.name) {
-      console.log('Word matches the provided word:', word);
+    if (word === result.name) {
+      setTimeout(() => {
+        handleNext();
+      }, 500);
     }
     setSelectedWord(word);
   };
-  const getCardClass = (word: string) => {
-    if (!selectedWord) {
-      return '';
-    }
-    if (word === item.name) {
-      return classes.correct;
-    }
-    if (word === selectedWord && item.name !== word) {
-      return classes.wrong;
-    }
-    return '';
-  };
 
-  const cards = words.map((word) => {
-    return (
-      <Card
-        key={word}
-        withBorder
-        className={`${classes.card} ${getCardClass(word)}`}
-        onClick={() => handleCardClick(word)}
-        radius="md"
-      >
-        <Text className={classes.item}>{word}</Text>
-      </Card>
-    );
-  });
+  const getCardClass = (word: string) => {
+    if (word !== selectedWord) return '';
+    if (word === result.name) return classes.correct;
+    return classes.wrong;
+  };
 
   return (
     <>
       <Container size="50rem" px={0}>
-        <Text className={classes.title}>{item.description}</Text>
+        <Text className={classes.title}>{result.description}</Text>
         <SimpleGrid cols={2} mt="md" mb={3} px={4}>
-          {cards}
+          {options.map((word) => (
+            <Card
+              key={word}
+              withBorder
+              className={`${classes.card} ${getCardClass(word)}`}
+              onClick={() => handleCardClick(word)}
+              radius="md"
+            >
+              <Text className={classes.item}>{word}</Text>
+            </Card>
+          ))}
         </SimpleGrid>
-        <Text mt={7}>{item.example}</Text>
+        <Text mt={7}>{result.example}</Text>
       </Container>
     </>
   );

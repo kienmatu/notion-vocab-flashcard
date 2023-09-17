@@ -1,6 +1,10 @@
-export function shuffleArray(array: Array<any>) {
-  for (let i = array.length - 1; i > 0; i--) {
+export function shuffleArray<T>(array: T[]): T[] {
+  const cloneArr = JSON.parse(JSON.stringify(array)) as T[];
+
+  for (let i = cloneArr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+    [cloneArr[i], cloneArr[j]] = [cloneArr[j], cloneArr[i]];
   }
+
+  return cloneArr;
 }
