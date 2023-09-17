@@ -8,18 +8,18 @@ export interface VocabItem {
   lastTime: Date;
 }
 
-export enum FlashcardType {
+export enum FlashCardType {
   Typing = 'TYPING',
   Selecting = 'SELECTING',
 }
 
-export interface FlashcardResult {
+export interface FlashCardResult {
   time: Date;
   remember: boolean;
   timeToRemember: number; // milliseconds
 }
 
 export interface FlashCardContent {
-  type: FlashcardType;
+  type: FlashCardType;
   content: VocabItem;
 }
