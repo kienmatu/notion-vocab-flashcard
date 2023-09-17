@@ -10,7 +10,7 @@ export function getRandomWords(origin: string, number: number = 3) {
         strategy: 'any-length',
         length: { min: expectedLength, max: expectedLength + 3 },
       });
-    } while (randomWord === origin);
+    } while (randomWord === origin && !randomWords.includes(randomWord));
     randomWords.push(randomWord);
   }
 

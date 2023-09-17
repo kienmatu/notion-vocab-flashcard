@@ -24,16 +24,16 @@ const useStyles = createStyles((theme) => ({
       boxShadow: theme.shadows.sm,
       transform: 'scale(1.01)',
       cursor: 'pointer',
-      borderColor: theme.colors.teal[7],
+      borderColor: theme.colors.blue[5],
     },
   },
   wrong: {
-    borderColor: theme.colors.red[6],
+    borderColor: `${theme.colors.red[6]}!important`,
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.white,
   },
   correct: {
     color: 'white',
-    backgroundColor: theme.colors.teal[7],
+    backgroundColor: `${theme.colors.teal[7]}!important`,
   },
 }));
 
@@ -51,7 +51,7 @@ export default function SelectingFlashcard({ item, words }: { item: VocabItem; w
     if (!selectedWord) {
       return '';
     }
-    if (word === selectedWord && item.name === word) {
+    if (word === item.name) {
       return classes.correct;
     }
     if (word === selectedWord && item.name !== word) {
@@ -81,6 +81,7 @@ export default function SelectingFlashcard({ item, words }: { item: VocabItem; w
         <SimpleGrid cols={2} mt="md" mb={3} px={4}>
           {cards}
         </SimpleGrid>
+        <Text mt={7}>{item.example}</Text>
       </Container>
     </>
   );
