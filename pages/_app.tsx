@@ -4,8 +4,8 @@ import { getCookie, setCookie } from 'cookies-next';
 import Head from 'next/head';
 import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
-import AppLayout from '../components/app/Layout';
-import { LeftNavbar } from '../components/app/Navbar';
+import AppLayout from '../components/app/layout';
+import { LeftNavbar } from '../components/app/navbar';
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;

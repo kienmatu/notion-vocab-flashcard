@@ -4,7 +4,7 @@ import { FlashCardContent, FlashCardType } from '@/components/app/flashcards/typ
 import { useState } from 'react';
 
 const SelectingFlashcard = dynamic(
-  () => import('@/components/app/flashcards/selecting/Selecting'),
+  () => import('@/components/app/flashcards/selecting/selecting'),
   { ssr: false }
 );
 
