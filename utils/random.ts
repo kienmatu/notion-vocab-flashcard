@@ -7,11 +7,13 @@ export function getRandomWords(origin: string, limit: number = 3) {
 
   while (randomWords.length < limit + 1) {
     const randomWord = faker.word.sample({
-      strategy: 'any-length',
+      strategy: 'closest',
       length: { min: expectedLength, max: expectedLength + 3 },
     });
 
-    if (randomWord !== origin) randomWords.push(randomWord);
+    if (!randomWords.includes(randomWord)) {
+      randomWords.push(randomWord);
+    }
   }
 
   return shuffleArray<string>(randomWords);

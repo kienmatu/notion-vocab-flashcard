@@ -1,7 +1,7 @@
 import { Card, Text, rem, createStyles, SimpleGrid, Container } from '@mantine/core';
 import { VocabItem } from '../type';
 import { useMemo, useState } from 'react';
-import { getRandomWords } from '@/utils/index';
+import { getRandomWords } from '@/utils/random';
 
 const useStyles = createStyles((theme) => ({
   title: {
@@ -29,7 +29,8 @@ const useStyles = createStyles((theme) => ({
     },
   },
   wrong: {
-    backgroundColor: `${theme.colors.red[6]}!important`,
+    backgroundColor: `${theme.colors.red[2]}!important`,
+    borderColor: `${theme.colors.red[7]}!important`,
   },
   correct: {
     color: 'white',
@@ -45,22 +46,33 @@ type SelectingFlashcardProps = {
 export default function SelectingFlashcard({ result, handleNext }: SelectingFlashcardProps) {
   const { classes } = useStyles();
   const [selectedWord, setSelectedWord] = useState('');
+  const [completed, setCompleted] = useState(false);
 
   const options = useMemo(() => getRandomWords(result.name), [result]);
 
   const handleCardClick = (word: string) => {
-    if (word === result.name) {
+    if (!completed) {
       setTimeout(() => {
+        setSelectedWord('');
+        setCompleted(false);
         handleNext();
-      }, 500);
+      }, 1000);
+      setSelectedWord(word);
+      setCompleted(true);
     }
-    setSelectedWord(word);
   };
 
   const getCardClass = (word: string) => {
-    if (word !== selectedWord) return '';
-    if (word === result.name) return classes.correct;
-    return classes.wrong;
+    if (completed) {
+      if (word === result.name) {
+        return classes.correct;
+      } else {
+        if (word === selectedWord) {
+          return classes.wrong;
+        }
+      }
+    }
+    return '';
   };
 
   return (

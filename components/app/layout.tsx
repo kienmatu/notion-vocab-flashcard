@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { LeftNavbar } from './Navbar';
+import { LeftNavbar } from './navbar';
 import { AppShell } from '@mantine/core';
 interface LayoutProps {
   children: ReactNode;
