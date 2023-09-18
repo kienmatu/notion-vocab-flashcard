@@ -56,7 +56,7 @@ export default function SelectingFlashcard({ result, handleNext }: SelectingFlas
         setSelectedWord('');
         setCompleted(false);
         handleNext();
-      }, 500);
+      }, 1000);
       setSelectedWord(word);
       setCompleted(true);
     }

@@ -1,5 +1,5 @@
 import { Title, Text, Anchor } from '@mantine/core';
-import useStyles from './HomePage.styles';
+import useStyles from './home-page.styles';
 import Link from 'next/link';
 
 export function HomePage() {

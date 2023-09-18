@@ -11,7 +11,7 @@ import {
   IconBrain,
 } from '@tabler/icons-react';
 import { MantineLogo } from '@mantine/ds';
-import { ColorSchemeToggle } from '../ColorSchemeToggle/ColorSchemeToggle';
+import { ColorSchemeToggle } from '../color-scheme-toggle/color-scheme-toggle';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
