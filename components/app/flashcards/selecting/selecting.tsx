@@ -1,7 +1,7 @@
 import { Card, Text, rem, createStyles, SimpleGrid, Container } from '@mantine/core';
 import { VocabItem } from '../type';
 import { useMemo, useState } from 'react';
-import { getRandomWords } from '@/utils/index';
+import { getRandomWords } from '@/utils/random';
 
 const useStyles = createStyles((theme) => ({
   title: {
